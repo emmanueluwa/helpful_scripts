@@ -2,19 +2,21 @@
     <div class="career-banner">
       <img
         class="career-banner-img"
-        src="assets/img/"
+        src="{{ career.background_image }}"
         alt="background image"
       />
     </div>
     <div class="career-content">
       <div class="details-wrapper">
         <div class="career-header">
-          <h1 class="career-header-title">Career Name</h1>
+          <h1 class="career-header-title">{{ career.name }}</h1>
           <h2 class="career-header-release-date">
-            Release: 03/06/2018
+            Release: {{ career.released | date }}
           </h2>
           <p class="career-header-genres">
-            <span>RPG</span>
+            <span *ngFor="let x of career.genres; let last = last"
+            >{{ x.name }}<span ng*If="!last">, </span></span
+          >
           </p>
           <div class="career-gauge">
             <mwl-gauge
@@ -28,10 +30,10 @@
               [animationDuration]="2"
             >
             </mwl-gauge>
-            <a href="" 
+            <a href="{{ career.metacritic_url }}" 
                class="game-gauge-label"
                target="_blank" 
-               >HelpfulScripts</a>
+               >Rating</a>
           </div>
         </div>
         <!-- tabs will be placed here -->

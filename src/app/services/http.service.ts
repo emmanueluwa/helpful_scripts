@@ -25,4 +25,30 @@ export class HttpService {
       params: params, 
     });
   }
+
+  getCareerDetails(id: string): Observable<Career> {
+    const careerInfoRequest = this.http.get(`${env.BASE_URL}/games/${id}`);
+    const careerTrailerRequest = this.http.get(
+      `${env.BASE_URL}/games/${id}/movies`
+    );
+    const careerScreenShotsRequest = this.http.get(
+      `${env.BASE_URL}/games/${id}/screenshots`
+    );
+
+    //retrieving all get methods and combining them into one
+      return forkJoin({
+        careerInfoRequest,
+        careerScreenshotsRequest,
+        careerTrailerRequest,
+      }).pipe(
+        //using spread operator to get all properties requested 
+        map((resp: any) => {
+          return {
+            ...resp['careerInfoRequest'],
+            screenshots: resp['careerScreenshotsRequest']?.results,
+            trailers: resp['careerTrailerRequest']?.results,
+          };
+        })
+      )
+  }
 }
