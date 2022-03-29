@@ -31,3 +31,72 @@
     background-color: #2f86a9 !important;
   }
 }
+
+.careers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.career {
+  width: 280px;
+  margin: 10px;
+  height: 330px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f3f3e6;
+  box-shadow: 4px 3px 8px 0px rgb(200 152 44);
+  transition-duration: 0.3;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 4px 3px 11px 6px rgb(200 152 44);
+    transform: translateY(-3px);
+  }
+
+  &-thumb-container {
+    background-color: #000;
+    position: relative;
+    height: 172px;
+    color: #f3f3e6;
+    text-align: center;
+  }
+
+  &-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 172px;
+  }
+
+  &-description {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 280px;
+  }
+
+  &-name {
+    color: #010028;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-sectors {
+    display: flex;
+  }
+
+  &-sector {
+    width: 20px;
+    margin-right: 10px;
+  }
+}

@@ -4,9 +4,40 @@
       <mat-select
         panelClass="sort-select"
         [(ngModel)]="sort"
+        (selectionChange)="searchCareers(sort)"
       >
         <mat-option value="sector">Sector</mat-option>
         <mat-option value="remote">Remote</mat-option>
+        <mat-option value="-released">Released</mat-option>
       </mat-select>
     </mat-form-field>
+</div>
+
+<div class="careers">
+  <ng-container *ngFor="let x of careers">
+    <div class="career" (click)="openCareerDetails(x.id)">
+      <div class="career-thumb-container">
+        <img
+          *ngIf="x.background_image"
+          src="{{ x.background_image }}"
+          alt="thumbnail"
+          class="career-thumbnail"
+        />
+        <p *ngIf="!x.background_image">No image</p>
+        <div>
+          <div class="career-description">
+            <p class="career-name">{{ x.name }}</p>
+            <div class="career-sectors">
+              <img
+                *ngFor="let gamePlatform of x.parent_platforms"
+                class="career-sector"
+                src="assets/img/platforms/{{ gamePlatform.platform.slug }}.svg"
+                alt="{{ gamePlatform.platform.slug }}"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 </div>

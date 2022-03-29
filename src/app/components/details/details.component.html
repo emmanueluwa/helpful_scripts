@@ -1,0 +1,39 @@
+<div class="details">
+    <div class="career-banner">
+      <img
+        class="career-banner-img"
+        src="assets/img/"
+        alt="background image"
+      />
+    </div>
+    <div class="career-content">
+      <div class="details-wrapper">
+        <div class="career-header">
+          <h1 class="career-header-title">Career Name</h1>
+          <h2 class="career-header-release-date">
+            Release: 03/06/2018
+          </h2>
+          <p class="career-header-genres">
+            <span>RPG</span>
+          </p>
+          <div class="career-gauge">
+            <mwl-gauge
+              class="two"
+              [max]="100"
+              [dialStartAngle]="100"
+              [dialEndAngle]="0"
+              [value]="gameRating"
+              [animated]="true"
+              [color]="getColor"
+              [animationDuration]="2"
+            >
+            </mwl-gauge>
+            <a href="" 
+               class="game-gauge-label"
+               target="_blank" 
+               >HelpfulScripts</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
